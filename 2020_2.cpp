@@ -2,7 +2,7 @@
 using namespace std;
 
 template<class T>
-class node{//½Úµãclass£¬½öĞèÒªÌá¹©³õÊ¼»¯ÒÔ¼°¸´ÖÆ¹¹Ôì,set
+class node{//èŠ‚ç‚¹classï¼Œä»…éœ€è¦æä¾›åˆå§‹åŒ–ä»¥åŠå¤åˆ¶æ„é€ ,set
 public:
 	T data;
 	node<T>* next;
@@ -105,40 +105,40 @@ public:
 		return 0;
 	}
 	node<T>* utd(node<T>* last, node<T>* head=NULL) {
-		if (this->firstnode==NULL) {//Á´±íÎª¿Õ
+		if (this->firstnode==NULL) {//é“¾è¡¨ä¸ºç©º
 			return this->firstnode;
 		}
-		if (head == NULL) {//³õÊ¼»¯
+		if (head == NULL) {//åˆå§‹åŒ–
 			head = this->firstnode;
 			last = this->firstnode->next;
 		}
-		if (last == NULL) {//×îºóµÄ½Úµãµ½ÁË
+		if (last == NULL) {//æœ€åçš„èŠ‚ç‚¹åˆ°äº†
 			return head;
 		}
-		head = this->utd(last->next, head);//½ÓÊÜÄæÖÃºó×îºóµÄÁ´±í½Úµã
+		head = this->utd(last->next, head);//æ¥å—é€†ç½®åæœ€åçš„é“¾è¡¨èŠ‚ç‚¹
 		head->setn(last);
 		head = head->next;
-		if (head->next == head) {//Ó¦ÎªheadµÄnextµÄÖ¸ÏòÎªµÚÒ»¸ö½ÚµãµÄµØÖ·
+		if (head->next == head) {//åº”ä¸ºheadçš„nextçš„æŒ‡å‘ä¸ºç¬¬ä¸€ä¸ªèŠ‚ç‚¹çš„åœ°å€
 			head->next = NULL;
 		}
-		return head;//µÚÒ»²ã²»ÒªĞèÒª·µ»Ø£»
+		return head;//ç¬¬ä¸€å±‚ä¸è¦éœ€è¦è¿”å›ï¼›
 	}
 
 	
 	/*
-	node<T>* reverse(node<T>* head)//´«ÈëÍ·½ÚµãµÄnextÖ¸Õë
+	node<T>* reverse(node<T>* head)//ä¼ å…¥å¤´èŠ‚ç‚¹çš„nextæŒ‡é’ˆ
 	{
 		if (head == NULL || head->next == NULL)
 			return head;
 		this->firstnode->next = reverse(head->next);
-		//»ØËİ£º½«µ±Ç°±íÍ·½áµãÁ´½Óµ½ÄæĞòÁ´±íµÄÎ²²¿
+		//å›æº¯ï¼šå°†å½“å‰è¡¨å¤´ç»“ç‚¹é“¾æ¥åˆ°é€†åºé“¾è¡¨çš„å°¾éƒ¨
 		head->next->next = head;
 		head->next = NULL;
 		return this->firstnode->next;
 	}
 
 	bool utd() {
-		if (this->firstnode->next == NULL) {//Á´±íÎª¿Õ
+		if (this->firstnode->next == NULL) {//é“¾è¡¨ä¸ºç©º
 			return 1;
 		}
 		node<T>* PointerTemp = this->firstnode->next,Temp;
@@ -150,38 +150,38 @@ public:
 			Temp->next = this->firstnode->next;
 			this->firstnode->next = Temp;
 		}
-		return 0;//µÚÒ»²ã²»ÒªĞèÒª·µ»Ø£»
+		return 0;//ç¬¬ä¸€å±‚ä¸è¦éœ€è¦è¿”å›ï¼›
 	}
 	*/
 	
 };
 template<class T>
-stl_list<T>* gett(stl_list<T>* a, stl_list<T>* b) {//Á´±íµÄºÏ³É£»·µ»Østl_list<T>*
+stl_list<T>* gett(stl_list<T>* a, stl_list<T>* b) {//é“¾è¡¨çš„åˆæˆï¼›è¿”å›stl_list<T>*
 	node<T>* pa = a->firstnode->next;
 	node<T>* pb = b->firstnode->next;
 	node<T>* pback = a->firstnode;
 	if (pa) {//list a empty?
 		while (pa && pb) {
-			if (pa->data < pb->data) {//aÁ´ÔªËØĞ¡ÓÚbÁ´£¬²åÈëa
+			if (pa->data < pb->data) {//aé“¾å…ƒç´ å°äºbé“¾ï¼Œæ’å…¥a
 				pback = pback->next;
 				pa = pa->next;
-			}else if (pa->data == pb->data) {//aÁ´ÔªËØµÈÓÚbÁ´£¬²åÈëa
+			}else if (pa->data == pb->data) {//aé“¾å…ƒç´ ç­‰äºbé“¾ï¼Œæ’å…¥a
 				pback = pback->next;
 				pa = pa->next;
 				pb = pb->next;
 			}
-			else {//bÁ´ÔªËØĞ¡ÓÚaÁ´£¬²åÈëb
+			else {//bé“¾å…ƒç´ å°äºaé“¾ï¼Œæ’å…¥b
 				node<T>* temp = pb->next;
 				pback->setn(pb);
 				pback = pback->next;
 				pb = temp;
 			}
 		}
-		if (pb) {//bÁ´±í»¹Ã»½ÓÍê
+		if (pb) {//bé“¾è¡¨è¿˜æ²¡æ¥å®Œ
 			pback->next = pb;
 		}
 	}
-	else {//aÁ´±íÎª¿Õ
+	else {//aé“¾è¡¨ä¸ºç©º
 		a->firstnode->next = b->firstnode->next;
 	}
 	delete b->firstnode;
@@ -192,18 +192,18 @@ stl_list<T>* gett(stl_list<T>* a, stl_list<T>* b) {//Á´±íµÄºÏ³É£»·µ»Østl_list<T>
 int main() {
 	node<int>* data1=new node<int>(10);
 	node<int>* head;
-	//²åÈë
+	//æ’å…¥
 	stl_list<int> a(data1);
 	a.insert(456);
 	a.insert(235647);
 	a.insert(215);
 	a.insert(23);
 	head = a.firstnode->next;
-	cout << "aµÄÊı¾İ" << endl;
+	cout << "açš„æ•°æ®" << endl;
 	for (; head; head = head->next) {
 		cout << head->data << " ";
 	}cout << endl;
-	//¹¹½¨bÁ´±í
+	//æ„å»ºbé“¾è¡¨
 	stl_list<int> b;
 	b.insert(325);
 	b.insert(4869);
@@ -211,22 +211,22 @@ int main() {
 	b.insert(23678);
 	b.insert(23);
 	head = b.firstnode->next;
-	cout << "bµÄÊı¾İ" << endl;
+	cout << "bçš„æ•°æ®" << endl;
 	for (; head; head = head->next) {
 		cout << head->data << " ";
 	}cout << endl;
-	//a£¬bÁ´±íµÄºÏ²¢
+	//aï¼Œbé“¾è¡¨çš„åˆå¹¶
 	stl_list<int>* back=gett(&a, &b);
 	head = back->firstnode->next;
-	cout << "a,bÁ´±íºÏ²¢ºóÊı¾İ" << endl;
+	cout << "a,bé“¾è¡¨åˆå¹¶åæ•°æ®" << endl;
 	for (; head; head = head->next) {
 		cout << head->data << " ";
 	}
 	cout << endl;
-	//backÁ´±íµ¹ÖÃ
+	//backé“¾è¡¨å€’ç½®
 	back->utd(NULL);
 	head = back->firstnode->next;
-	cout << "a,bÁ´±íºÏ²¢ºóÊı¾İµ¹ÖÃ" << endl;
+	cout << "a,bé“¾è¡¨åˆå¹¶åæ•°æ®å€’ç½®" << endl;
 	for (; head; head = head->next) {
 		cout << head->data << " ";
 	}
