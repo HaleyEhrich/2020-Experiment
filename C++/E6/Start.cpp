@@ -5,13 +5,13 @@ using namespace std;
 
 void menu() {
 	cout << "--------------------------------" << endl;
-	cout << "\t±í´ïÊ½ÇóÖµ" << endl;
-	cout << "1: ÖĞ×º±í´ïÊ½µ½ºó×º±í´ïÊ½µÄ×ª»»" << endl;
-	cout << "2: ºó×º±í´ïÊ½µÄÇó½â" << endl;
-	cout << "3: ÖĞ×º±í´ïÊ½µÄ¼ÆËã" << endl;
-	cout << "4: ÍË³ö" << endl;
+	cout << "\tè¡¨è¾¾å¼æ±‚å€¼" << endl;
+	cout << "1: ä¸­ç¼€è¡¨è¾¾å¼åˆ°åç¼€è¡¨è¾¾å¼çš„è½¬æ¢" << endl;
+	cout << "2: åç¼€è¡¨è¾¾å¼çš„æ±‚è§£" << endl;
+	cout << "3: ä¸­ç¼€è¡¨è¾¾å¼çš„è®¡ç®—" << endl;
+	cout << "4: é€€å‡º" << endl;
 	cout << "--------------------------------" << endl;
-	cout << "ÊäÈëÄãµÄÑ¡Ôñ:";
+	cout << "è¾“å…¥ä½ çš„é€‰æ‹©:";
 }
 double CharToNum(string& Data,int& i) {
 	double LeftNum = 0, RightNum = 0, j = 0.1;
@@ -30,7 +30,7 @@ double CharToNum(string& Data,int& i) {
 
 StackChara* MidLastCon() {
 	string Data;
-	cout << "ÊäÈëÊı¾İ:";
+	cout << "è¾“å…¥æ•°æ®:";
 	cin >> Data;
 	StackChara* BackData = new StackChara();
 	StackChara* StoreTempData = new StackChara();
@@ -46,7 +46,7 @@ StackChara* MidLastCon() {
 				//cout << "AAA" << endl;
 				Num = CharToNum(Data, i);
 				if (Chara == '/' && Num == 0) {
-					cout << "0²»¿É×÷Îª³ıÊı:";
+					cout << "0ä¸å¯ä½œä¸ºé™¤æ•°:";
 					for (int j = 0; j <= i; ++j) {
 						cout << Data[j];
 					}cout << endl;
@@ -84,7 +84,7 @@ StackChara* MidLastCon() {
 							StateNum = 1;
 						}
 						else {
-							cout << Data[i] << "×ó±ßÈ±Ê§²Ù×÷Êı£º";
+							cout << Data[i] << "å·¦è¾¹ç¼ºå¤±æ“ä½œæ•°ï¼š";
 							for (int j = 0; j <= i; ++j) {
 								cout << Data[j];
 							}cout << endl;
@@ -97,7 +97,7 @@ StackChara* MidLastCon() {
 				else {
 					//cout << "DDD" << endl;
 					if ((int)Chara) {
-						cout << Data[i] << "×ó±ßÈ±Ê§²Ù×÷Êı£º";
+						cout << Data[i] << "å·¦è¾¹ç¼ºå¤±æ“ä½œæ•°ï¼š";
 						for (int j = 0; j <= i; ++j) {
 							cout << Data[j];
 						}cout << endl;
@@ -122,8 +122,8 @@ StackChara* MidLastCon() {
 					Chara = (char)0;
 				}
 				else {
-					if (BackData->StackEmpty() && Data[i - 2] != '(') {//±ØÎªÍ·
-						cout << "È±Ê§ÔËËã·û:";
+					if (BackData->StackEmpty() && Data[i - 2] != '(') {//å¿…ä¸ºå¤´
+						cout << "ç¼ºå¤±è¿ç®—ç¬¦:";
 						for (int j = 0; j < i; ++j) {
 							cout << Data[j];
 						}cout << endl;
@@ -141,7 +141,7 @@ StackChara* MidLastCon() {
 				++i;
 				flag = 1;
 				if ((int)Chara) {
-					cout << "È±Ê§²Ù×÷Êı:";
+					cout << "ç¼ºå¤±æ“ä½œæ•°:";
 					for (int j = 0; j < i; ++j) {
 						cout << Data[j];
 					}cout << endl;
@@ -163,14 +163,14 @@ StackChara* MidLastCon() {
 				StateNum = 1;
 			}
 		}
-		//´¦ÀíÀ¨ºÅºóµÄÓÅÏÈ¼¶
-		cout << "Ê£Óà´ı´¦Àí:";
+		//å¤„ç†æ‹¬å·åçš„ä¼˜å…ˆçº§
+		cout << "å‰©ä½™å¾…å¤„ç†:";
 		for (int j = i; j < Data.length(); ++j) {
 			cout << Data[j];
 		}//cout << endl;
-		cout << "Êä³öÄÚÈİ: ";
+		cout << "è¾“å‡ºå†…å®¹: ";
 		BackData->out();
-		cout << "ÁÙÊ±ÄÚÈİ: ";
+		cout << "ä¸´æ—¶å†…å®¹: ";
 		StoreTempData->out();
 		cout << endl;
 		//cout << "Chara  " << Chara << endl;
@@ -180,22 +180,22 @@ StackChara* MidLastCon() {
 	}
 	if (PriorityBase != 0) {
 		cout << Data << endl;
-		cout << "À¨ºÅ²»Æ¥Åä" << endl;
+		cout << "æ‹¬å·ä¸åŒ¹é…" << endl;
 	}
 	else {
 		cout << endl;
-		cout << "Ô­Ê¼ÖĞ×ºÊı¾İ:" << Data << endl;
-		cout << "×ª»»ºóÊı¾İ:";
+		cout << "åŸå§‹ä¸­ç¼€æ•°æ®:" << Data << endl;
+		cout << "è½¬æ¢åæ•°æ®:";
 		BackData->out();
 		cout << endl;
 	}
 	return BackData;
 	//for (int i=0; i < Data.length();) {
 	//	if (Data[i] >= '0' && Data[i] <= '9') {//Num
-	//		if ((int)Chara > 0) {//×ó²Ù×÷Êı´æÔÚ£¬»»ÑÔÖ®´ËÊ±¼üÈëµÄÊÇÓÒ²Ù×÷Êı£¬ĞèÒª½«·ûºÅÑ¹ÈëÕ»
-	//			Num = CharToNum(Data, i);//²Ù×÷Êı¶ÁÈ¡£¬×ª»»µ½DOUBLE
+	//		if ((int)Chara > 0) {//å·¦æ“ä½œæ•°å­˜åœ¨ï¼Œæ¢è¨€ä¹‹æ­¤æ—¶é”®å…¥çš„æ˜¯å³æ“ä½œæ•°ï¼Œéœ€è¦å°†ç¬¦å·å‹å…¥æ ˆ
+	//			Num = CharToNum(Data, i);//æ“ä½œæ•°è¯»å–ï¼Œè½¬æ¢åˆ°DOUBLE
 	//			if (Chara == '/' && Num == 0) {
-	//				cout << "0²»¿É×÷Îª³ıÊı:";
+	//				cout << "0ä¸å¯ä½œä¸ºé™¤æ•°:";
 	//				for (int j = 0; j <= i; ++j) {
 	//					cout << Data[j];
 	//				}cout << endl;
@@ -203,23 +203,23 @@ StackChara* MidLastCon() {
 	//				cout << '^' << '$' << endl;
 	//				return NULL;
 	//			}
-	//			Last->AddData(Num);//Ñ¹ÈëÓÒ²Ù×÷Êı
-	//			Last->AddData(Chara);//Ñ¹ÈëÔËËã·ûºÅ
-	//			if (StoreTempData->TopPriority() ==1 && Data[i] != ')' ) {//ÓÅÏÈ¼¶²¹×ã£¬Èô´æÔÚ1ÓÅÏÈ¼¶µÄ²Ù×÷·û£¬´æÈë1ÓÅÏÈ¼¶·ûºÅ
+	//			Last->AddData(Num);//å‹å…¥å³æ“ä½œæ•°
+	//			Last->AddData(Chara);//å‹å…¥è¿ç®—ç¬¦å·
+	//			if (StoreTempData->TopPriority() ==1 && Data[i] != ')' ) {//ä¼˜å…ˆçº§è¡¥è¶³ï¼Œè‹¥å­˜åœ¨1ä¼˜å…ˆçº§çš„æ“ä½œç¬¦ï¼Œå­˜å…¥1ä¼˜å…ˆçº§ç¬¦å·
 	//				Last->AddData(StoreTempData->GetTOP());
 	//				StoreTempData->PopTopData();
 	//			}
 	//			if (Flag)Flag = 0;
 	//			Chara = (char)0;
 	//		}
-	//		else {//´ËÊ±ÊäÈëµÄÎª×ó²Ù×÷Êı
+	//		else {//æ­¤æ—¶è¾“å…¥çš„ä¸ºå·¦æ“ä½œæ•°
 	//			Num = CharToNum(Data, i);
-	//			Last->AddData(Num);//Ñ¹Èë×ó²Ù×÷Êı
+	//			Last->AddData(Num);//å‹å…¥å·¦æ“ä½œæ•°
 	//		}
 	//	}
 	//	else {//Chara
 	//		if (Data[i] == '-' || Data[i] == '*' || Data[i] == '/' || Data[i] == '+' ) {
-	//			if ((Data[i] == '-'|| Data[i]=='+') && (Last->GetType() == CHARATYPE || Num == 0 )) {//|| (int)Chara > 0 Õâ¸öÅĞ¶¨Ìõ¼ş¿É¿¼ÂÇ£¬Ö÷ÒªÊÇÌí¼ÓºóÈçºÎ´¦Àí
+	//			if ((Data[i] == '-'|| Data[i]=='+') && (Last->GetType() == CHARATYPE || Num == 0 )) {//|| (int)Chara > 0 è¿™ä¸ªåˆ¤å®šæ¡ä»¶å¯è€ƒè™‘ï¼Œä¸»è¦æ˜¯æ·»åŠ åå¦‚ä½•å¤„ç†
 	//				if (Data[i] == '-') {
 	//					Num = CharToNum(Data, ++i);
 	//					Num *= -1;
@@ -228,9 +228,9 @@ StackChara* MidLastCon() {
 	//				else {
 	//					++i;
 	//				}
-	//			}else {//Õı³£·ûºÅµÄ³öÏÖ
-	//				if ((int)Chara>0) {//ÅĞ¶ÏÕıÈ·Óë·ñ
-	//					cout << Data[i] << "×ó±ßÈ±Ê§²Ù×÷Êı£º";
+	//			}else {//æ­£å¸¸ç¬¦å·çš„å‡ºç°
+	//				if ((int)Chara>0) {//åˆ¤æ–­æ­£ç¡®ä¸å¦
+	//					cout << Data[i] << "å·¦è¾¹ç¼ºå¤±æ“ä½œæ•°ï¼š";
 	//					for (int j = 0; j <= i;++j) {
 	//						cout << Data[j];
 	//					}cout << endl;
@@ -238,8 +238,8 @@ StackChara* MidLastCon() {
 	//					cout << '^' << '$' << endl;
 	//					return NULL;
 	//				}
-	//				Chara = Data[i++];//´æ´¢
-	//				if (Last->TopPriority() == 1 && (Chara == '/' || Chara == '*') && Flag == 0) {//ÅĞ¶ÏÓÅÏÈ¼¶
+	//				Chara = Data[i++];//å­˜å‚¨
+	//				if (Last->TopPriority() == 1 && (Chara == '/' || Chara == '*') && Flag == 0) {//åˆ¤æ–­ä¼˜å…ˆçº§
 	//					StoreTempData->AddData(Last->GetTOP());
 	//					Last->PopTopData();
 	//				}
@@ -248,13 +248,13 @@ StackChara* MidLastCon() {
 	//		else if (Data[i] == '(') {
 	//			++i;
 	//			++Flag_Left;
-	//			if ((int)Chara > 0) {//´æÔÚ·ûºÅ£¬´æ´¢ÓÚÁÙÊ±Õ»ÄÚ
+	//			if ((int)Chara > 0) {//å­˜åœ¨ç¬¦å·ï¼Œå­˜å‚¨äºä¸´æ—¶æ ˆå†…
 	//				StoreTempData->AddData(Chara);
 	//				Chara = (char)0;
 	//			}
-	//			else {//²»º¬ÓĞ·ûºÅÎ´´æ´¢
-	//				if (Last->StackEmpty() && Data[i-2]!='(' ) {//±ØÎªÍ·
-	//					cout << "È±Ê§ÔËËã·û:";
+	//			else {//ä¸å«æœ‰ç¬¦å·æœªå­˜å‚¨
+	//				if (Last->StackEmpty() && Data[i-2]!='(' ) {//å¿…ä¸ºå¤´
+	//					cout << "ç¼ºå¤±è¿ç®—ç¬¦:";
 	//					for (int j = 0; j < i;++j) {
 	//						cout << Data[j];
 	//					}cout << endl;
@@ -271,7 +271,7 @@ StackChara* MidLastCon() {
 	//		else if(Data[i]==')'){
 	//			--Flag_Left;
 	//			if (Chara) {
-	//				cout << "È±Ê§ÔËËã·û:";
+	//				cout << "ç¼ºå¤±è¿ç®—ç¬¦:";
 	//				for (int j = 0; j < i; ++j) {
 	//					cout << Data[j];
 	//				}cout << endl;
@@ -279,9 +279,9 @@ StackChara* MidLastCon() {
 	//				cout << '^' << '$' << endl;
 	//				return NULL;
 	//			}
-	//			++i; Num = 1;//»Ö¸´º¬ÓĞ×ó²Ù×÷Êı
+	//			++i; Num = 1;//æ¢å¤å«æœ‰å·¦æ“ä½œæ•°
 	//			Flag = 1;
-	//			if (StoreTempData->StackEmpty()) {//±ÜÃâ³ö¿ÕÕ»
+	//			if (StoreTempData->StackEmpty()) {//é¿å…å‡ºç©ºæ ˆ
 	//				StackCharaNode ttt= StoreTempData->GetTOP();
 	//				if (ttt.PopChara() != '(') {
 	//					Last->AddData(StoreTempData->GetTOP());
@@ -289,16 +289,16 @@ StackChara* MidLastCon() {
 	//				StoreTempData->PopTopData();
 	//				Flag = 0;
 	//			}
-	//			if (StoreTempData->TopPriority() == 1) {//´Ë´¦ĞèÒªÊÇÒòÎª£¨Ä¬ÈÏÑ¹³öÒ»¸ö²Ù×÷·û£¬ÔÚÉÏÃæ³öÕ»ºó£¬Èô»¹´æÔÚ1¼¶ÓÅÏÈ¼¶·ûºÅÔòĞèÒª³öÕ»
+	//			if (StoreTempData->TopPriority() == 1) {//æ­¤å¤„éœ€è¦æ˜¯å› ä¸ºï¼ˆé»˜è®¤å‹å‡ºä¸€ä¸ªæ“ä½œç¬¦ï¼Œåœ¨ä¸Šé¢å‡ºæ ˆåï¼Œè‹¥è¿˜å­˜åœ¨1çº§ä¼˜å…ˆçº§ç¬¦å·åˆ™éœ€è¦å‡ºæ ˆ
 	//				Last->AddData(StoreTempData->GetTOP());
 	//				StoreTempData->PopTopData();
 	//				Flag = 0;
 	//			}
 	//		}
 	//	}
-	//	cout << "Êä³öÄÚÈİ: " ;
+	//	cout << "è¾“å‡ºå†…å®¹: " ;
 	//	Last->out();
-	//	cout << "ÁÙÊ±ÄÚÈİ: ";
+	//	cout << "ä¸´æ—¶å†…å®¹: ";
 	//	StoreTempData->out();
 	//	//cout << Flag << endl;
 	//	//cout << Chara << "Chara" << endl;
@@ -306,7 +306,7 @@ StackChara* MidLastCon() {
 	//}                                 
 	//if (StoreTempData->StackEmpty() || Flag_Left) {
 	//	cout << Data << endl;
-	//	cout << "±í´ïÊ½´íÎó" << endl;
+	//	cout << "è¡¨è¾¾å¼é”™è¯¯" << endl;
 	//	return NULL;
 	//}
 	//else {
@@ -327,7 +327,7 @@ double Equaltion(double& LeftNum, double& RightNum,char& Chara) {
 		break;
 	case '/':
 		if (RightNum == 0) {
-			cout << "0²»¿É×÷Îª±»³ıÊı" << endl;
+			cout << "0ä¸å¯ä½œä¸ºè¢«é™¤æ•°" << endl;
 			exit(1);
 		}else{
 			Back = LeftNum / RightNum;
@@ -389,7 +389,7 @@ double LastCau(StackChara* Data) {
 			Back=Equaltion(Back, RightNum, Chara);
 		}
 	}
-	cout << "Çó½â½á¹û: " << Back << endl;
+	cout << "æ±‚è§£ç»“æœ: " << Back << endl;
 	return Back;
 }
 
@@ -422,7 +422,7 @@ double RightSolve(double Back,string& Data, int& i) {
 			if (Data[i] <= '9' && Data[i] >= '0') {
 				RightNum = CharToNum(Data, i);
 				if (i < Data.length()) {
-					if ((Data[i] == '*' || Data[i] == '/') && (Chara == '-' || Chara == '+')) {//ÓÅÏÈ¼¶
+					if ((Data[i] == '*' || Data[i] == '/') && (Chara == '-' || Chara == '+')) {//ä¼˜å…ˆçº§
 						RightNum = RightSolve(RightNum, Data, i);
 					}
 				}
@@ -431,15 +431,15 @@ double RightSolve(double Back,string& Data, int& i) {
 			}
 			else {
 				Chara = Data[i++];
-				if (Chara == '-' && Back == 0.0) {//¸ºÊı
+				if (Chara == '-' && Back == 0.0) {//è´Ÿæ•°
 					Back = CharToNum(Data, i);
 					Back *= -1;
 					Chara = (char)0;
 				}
 				else {
 					if ((Chara == '-' || Chara == '+' || Chara == '*' || Chara == '/') && \
-						i - 2 >= 0 && (Data[i - 2] == '-' || Data[i - 2] == '+' || Data[i - 2] == '*' || Data[i - 2] == '/')) {//Ç°Ò»¸öÒ²Îª·ûºÅ
-						cout << "È±Ê§²Ù×÷Êı:";
+						i - 2 >= 0 && (Data[i - 2] == '-' || Data[i - 2] == '+' || Data[i - 2] == '*' || Data[i - 2] == '/')) {//å‰ä¸€ä¸ªä¹Ÿä¸ºç¬¦å·
+						cout << "ç¼ºå¤±æ“ä½œæ•°:";
 						for (int j = 0; j < i; ++j) {
 							cout << Data[j];
 						}cout << endl;
@@ -455,7 +455,7 @@ double RightSolve(double Back,string& Data, int& i) {
 								Back = Equaltion(Back, RightNum, Chara);
 							}
 							else {
-								cout << "È±Ê§ÔËËã·û:";
+								cout << "ç¼ºå¤±è¿ç®—ç¬¦:";
 								for (int j = 0; j < i; ++j) {
 									cout << Data[j];
 								}cout << endl;
@@ -475,31 +475,31 @@ double RightSolve(double Back,string& Data, int& i) {
 	else {
 		while (i < Data.length() && Data[i] != ')') {
 			if (Data[i] <= '9' && Data[i] >= '0') {
-				if (Back) {//×ó²Ù×÷Êı´æÔÚ
+				if (Back) {//å·¦æ“ä½œæ•°å­˜åœ¨
 					RightNum = CharToNum(Data, i);
 					if (i < Data.length()) {
-						if ((Data[i] == '*' || Data[i] == '/') && (Chara == '-' || Chara == '+')) {//ÓÅÏÈ¼¶
+						if ((Data[i] == '*' || Data[i] == '/') && (Chara == '-' || Chara == '+')) {//ä¼˜å…ˆçº§
 							RightNum = RightSolve(RightNum, Data, i);
 						}
 					}
 					Back = Equaltion(Back, RightNum, Chara);
 					Chara = (char)0;
 				}
-				else {//×ó²Ù×÷Êı²»´æÔÚ
+				else {//å·¦æ“ä½œæ•°ä¸å­˜åœ¨
 					Back = CharToNum(Data, i);
 				}
 			}
 			else {
 				Chara = Data[i++];
-				if (Chara == '-' && Back == 0.0) {//¸ºÊı
+				if (Chara == '-' && Back == 0.0) {//è´Ÿæ•°
 					Back = CharToNum(Data, i);
 					Back *= -1;
 					Chara = (char)0;
 				}
 				else {
 					if ((Chara == '-' || Chara == '+' || Chara == '*' || Chara == '/') && \
-						i - 2 >= 0 && (Data[i - 2] == '-' || Data[i - 2] == '+' || Data[i - 2] == '*' || Data[i - 2] == '/')) {//Ç°Ò»¸öÒ²Îª·ûºÅ
-						cout << "È±Ê§²Ù×÷Êı:";
+						i - 2 >= 0 && (Data[i - 2] == '-' || Data[i - 2] == '+' || Data[i - 2] == '*' || Data[i - 2] == '/')) {//å‰ä¸€ä¸ªä¹Ÿä¸ºç¬¦å·
+						cout << "ç¼ºå¤±æ“ä½œæ•°:";
 						for (int j = 0; j < i; ++j) {
 							cout << Data[j];
 						}cout << endl;
@@ -515,7 +515,7 @@ double RightSolve(double Back,string& Data, int& i) {
 								Back = Equaltion(Back, RightNum, Chara);
 							}
 							else {
-								cout << "È±Ê§ÔËËã·û:";
+								cout << "ç¼ºå¤±è¿ç®—ç¬¦:";
 								for (int j = 0; j < i; ++j) {
 									cout << Data[j];
 								}cout << endl;
@@ -536,10 +536,10 @@ double RightSolve(double Back,string& Data, int& i) {
 }
 double MidCau() {
 	string Data;
-	cout << "ÊäÈëÊı¾İ:";
+	cout << "è¾“å…¥æ•°æ®:";
 	cin >> Data;
 	if (BracketMatching(Data)) {
-		cout << "À¨ºÅ²»Æ¥Åä" << endl;
+		cout << "æ‹¬å·ä¸åŒ¹é…" << endl;
 		exit(1);
 	}
 	double RightNum = 0.0;
@@ -547,31 +547,31 @@ double MidCau() {
 	char Chara = (char)0, Chara2 = (char)0;
 	for (int i = 0; i < Data.length();) {
 		if (Data[i] <= '9' && Data[i] >= '0') {
-			if (Back) {//×ó²Ù×÷Êı´æÔÚ
+			if (Back) {//å·¦æ“ä½œæ•°å­˜åœ¨
 				RightNum = CharToNum(Data, i);
 				if (i < Data.length()) {
 					//Chara2 = Data[i];
-					if ((Data[i] == '*' || Data[i] == '/') && (Chara == '-' || Chara == '+')) {//ÓÅÏÈ¼¶
+					if ((Data[i] == '*' || Data[i] == '/') && (Chara == '-' || Chara == '+')) {//ä¼˜å…ˆçº§
 						RightNum = RightSolve(RightNum, Data, i);
 					}
 				}
 				Back = Equaltion(Back, RightNum, Chara);
 				//Chara = (char)0;
 			}
-			else {//×ó²Ù×÷Êı²»´æÔÚ
+			else {//å·¦æ“ä½œæ•°ä¸å­˜åœ¨
 				Back= CharToNum(Data, i);
 			}
 		}
 		else {
 			Chara = Data[i++];
-			if (Chara == '-' && Back == 0.0) {//¸ºÊı
+			if (Chara == '-' && Back == 0.0) {//è´Ÿæ•°
 				Back = CharToNum(Data, i);
 				Back *= -1;
 				Chara = (char)0;
 			}
 			else {
 				if (i == 1 && (Chara == '*' || Chara == '/')) {
-					cout << "È±Ê§²Ù×÷Êı:";
+					cout << "ç¼ºå¤±æ“ä½œæ•°:";
 					for (int j = 0; j < i; ++j) {
 						cout << Data[j];
 					}cout << endl;
@@ -580,8 +580,8 @@ double MidCau() {
 					exit(1);
 				}
 				if ((Chara == '-' || Chara == '+' || Chara == '*' || Chara == '/') && \
-					i-2>=0 && (Data[i - 2] == '-' || Data[i - 2] == '+' || Data[i - 2] == '*' || Data[i - 2] == '/')) {//Ç°Ò»¸öÒ²Îª·ûºÅ
-					cout << "È±Ê§²Ù×÷Êı:";
+					i-2>=0 && (Data[i - 2] == '-' || Data[i - 2] == '+' || Data[i - 2] == '*' || Data[i - 2] == '/')) {//å‰ä¸€ä¸ªä¹Ÿä¸ºç¬¦å·
+					cout << "ç¼ºå¤±æ“ä½œæ•°:";
 					for (int j = 0; j < i; ++j) {
 						cout << Data[j];
 					}cout << endl;
@@ -597,7 +597,7 @@ double MidCau() {
 							Back = Equaltion(Back, RightNum, Chara);
 						}
 						else {
-							cout << "È±Ê§ÔËËã·û:";
+							cout << "ç¼ºå¤±è¿ç®—ç¬¦:";
 							for (int j = 0; j < i; ++j) {
 								cout << Data[j];
 							}cout << endl;
@@ -643,11 +643,11 @@ int main() {
 			break;
 		}
 		case '4': {
-			cout << "Ğ»Ğ»ÄúµÄÊ¹ÓÃ" << endl;
+			cout << "è°¢è°¢æ‚¨çš„ä½¿ç”¨" << endl;
 			break;
 		}
 		default: {
-			cout << "Ñ¡ÔñÓĞÎó" << endl;
+			cout << "é€‰æ‹©æœ‰è¯¯" << endl;
 			system("Pause");
 			system("cls");
 			break;
