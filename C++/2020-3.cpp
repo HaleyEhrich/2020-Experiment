@@ -3,15 +3,15 @@
 using namespace std;
 /*
 **************************************************************************
-* Á´±í1Àà                                                                *
-* 1:¶ÔÓÚÑ­»·µ¥Á´±í¶øÑÔ×î´óºÃ´¦ÔÚÓÚ²åÈëÊ±Ö¸ÕëÊ¹ÓÃ¸ü¼Ó±ãÀû£¬µ«ÊÇÎÊÌâÔÚÓÚ   *
-*	Ñ­»·µ¥Á´±íµÄ²åÈëÎ»µÄÅĞ¶¨ÒòÎªÍ·½ÚµãÈ±ÉÙÅĞ¶Ï±êÖ¾¶ø±äµÃÂé·³£»           *
-* 2:¹¹Ôìº¯Êı¡¢²åÈëº¯Êı×ñÑ­£º                                             *
-*	A:½ÚµãÏÂÒ»½Úµã²»´æÔÚÁ´±íÎª¿Õ£¬´ËÊ±Ö±½Ó²åÈë¸Ã½Úµã£»                   *
-*	B:ÏÂÒ»½Úµã´æÔÚ£¬ĞÂ½¨½Úµã½ÓÉÏ                                         *
-* 3:¹ØÓÚÉ¾³ı½ÚµãµÄ¼¸µãÎÊÌâ£º                                             *
-*	A:ÒòÎªthisÖ¸ÕëµÄÌØÊâĞÔĞèÒª¼ÓÈëÒ»¸öÅĞ¶ÏÓÃÓÚ·ÀÖ¹thisµÄÉ¾³ı£»           *
-*	B:ÀàÍâÇ°ÇıÉ¾³ı¿ÉÒÔ½â¾öÎÊÌâ£¬µ«ÊÇĞèÒª·µ»Ø½ÚµãÖ¸Õë£»                   *
+* é“¾è¡¨1ç±»                                                                *
+* 1:å¯¹äºå¾ªç¯å•é“¾è¡¨è€Œè¨€æœ€å¤§å¥½å¤„åœ¨äºæ’å…¥æ—¶æŒ‡é’ˆä½¿ç”¨æ›´åŠ ä¾¿åˆ©ï¼Œä½†æ˜¯é—®é¢˜åœ¨äº   *
+*	å¾ªç¯å•é“¾è¡¨çš„æ’å…¥ä½çš„åˆ¤å®šå› ä¸ºå¤´èŠ‚ç‚¹ç¼ºå°‘åˆ¤æ–­æ ‡å¿—è€Œå˜å¾—éº»çƒ¦ï¼›           *
+* 2:æ„é€ å‡½æ•°ã€æ’å…¥å‡½æ•°éµå¾ªï¼š                                             *
+*	A:èŠ‚ç‚¹ä¸‹ä¸€èŠ‚ç‚¹ä¸å­˜åœ¨é“¾è¡¨ä¸ºç©ºï¼Œæ­¤æ—¶ç›´æ¥æ’å…¥è¯¥èŠ‚ç‚¹ï¼›                   *
+*	B:ä¸‹ä¸€èŠ‚ç‚¹å­˜åœ¨ï¼Œæ–°å»ºèŠ‚ç‚¹æ¥ä¸Š                                         *
+* 3:å…³äºåˆ é™¤èŠ‚ç‚¹çš„å‡ ç‚¹é—®é¢˜ï¼š                                             *
+*	A:å› ä¸ºthisæŒ‡é’ˆçš„ç‰¹æ®Šæ€§éœ€è¦åŠ å…¥ä¸€ä¸ªåˆ¤æ–­ç”¨äºé˜²æ­¢thisçš„åˆ é™¤ï¼›           *
+*	B:ç±»å¤–å‰é©±åˆ é™¤å¯ä»¥è§£å†³é—®é¢˜ï¼Œä½†æ˜¯éœ€è¦è¿”å›èŠ‚ç‚¹æŒ‡é’ˆï¼›                   *
 **************************************************************************
 */
 template <class T>
@@ -29,25 +29,25 @@ public:
 			this->next = NULL;
 		}
 	}
-	list1(list1<T>& datain) {//¸ü¸ÄÁËÊı¾İÓò£¬¸ü¸ÄÖ¸ÕëÓò
+	list1(list1<T>& datain) {//æ›´æ”¹äº†æ•°æ®åŸŸï¼Œæ›´æ”¹æŒ‡é’ˆåŸŸ
 		this->data = datain.data;
 		this->next = datain.next;
 	}
-	//½ÚµãµÄ²åÈë
-	bool insert(list1<T>* datain) {//´«Èë½Úµã;ÔÚµ÷ÓÃÇ°Ó¦¸Ã¾ö¶¨²åÈëÎ»ÖÃ;
+	//èŠ‚ç‚¹çš„æ’å…¥
+	bool insert(list1<T>* datain) {//ä¼ å…¥èŠ‚ç‚¹;åœ¨è°ƒç”¨å‰åº”è¯¥å†³å®šæ’å…¥ä½ç½®;
 		if (this->next == NULL) {
 			this->data = datain->data;
 			this->next = this;
 		}
 		else {
 			list1<T>* temp = this->next;
-			if (temp == this || (temp->data > datain->data && this->data <= datain->data) || this->data > temp->data) {//Á´±íÖ»ÓĞ1¸öÔªËØ£¬ÏÂÒ»¸öÔªËØ´óÓÚ²åÈëÔªËØ,ÔÚ×î´óµÄÒ²±È²åÈëÔªËØĞ¡Ê±²åÈëÔªËØ
+			if (temp == this || (temp->data > datain->data && this->data <= datain->data) || this->data > temp->data) {//é“¾è¡¨åªæœ‰1ä¸ªå…ƒç´ ï¼Œä¸‹ä¸€ä¸ªå…ƒç´ å¤§äºæ’å…¥å…ƒç´ ,åœ¨æœ€å¤§çš„ä¹Ÿæ¯”æ’å…¥å…ƒç´ å°æ—¶æ’å…¥å…ƒç´ 
 				this->next = datain;
 				this->next->next = temp;
 			}
 			else {
 				for (;; temp = temp->next) {
-					if ((temp->next->data > datain->data && temp->data <= datain->data) || temp->data > temp->next->data) {//ÏÂÒ»¸öÔªËØ´óÓÚ²åÈëÔªËØ,ÔÚ×î´óµÄÒ²±È²åÈëÔªËØĞ¡Ê±²åÈëÔªËØ
+					if ((temp->next->data > datain->data && temp->data <= datain->data) || temp->data > temp->next->data) {//ä¸‹ä¸€ä¸ªå…ƒç´ å¤§äºæ’å…¥å…ƒç´ ,åœ¨æœ€å¤§çš„ä¹Ÿæ¯”æ’å…¥å…ƒç´ å°æ—¶æ’å…¥å…ƒç´ 
 						list1<T>* p = temp->next;
 						temp->next = datain;
 						temp->next->next = p;
@@ -59,20 +59,20 @@ public:
 		}
 		return 0;
 	}
-	bool insert(T datain) {//´«ÈëÊı¾İÎªTĞÍÊı¾İ
+	bool insert(T datain) {//ä¼ å…¥æ•°æ®ä¸ºTå‹æ•°æ®
 		if (this->next == NULL) {
 			this->data = datain;
 			this->next = this;
 		}
 		else {
 			list1<T>* temp = this->next;
-			if (temp == this || (temp->data > datain && this->data <= datain) || this->data > temp->data) {//Á´±íÖ»ÓĞ1¸öÔªËØ£¬ÏÂÒ»¸öÔªËØ´óÓÚ²åÈëÔªËØ,ÔÚ×î´óµÄÒ²±È²åÈëÔªËØĞ¡Ê±²åÈëÔªËØ
+			if (temp == this || (temp->data > datain && this->data <= datain) || this->data > temp->data) {//é“¾è¡¨åªæœ‰1ä¸ªå…ƒç´ ï¼Œä¸‹ä¸€ä¸ªå…ƒç´ å¤§äºæ’å…¥å…ƒç´ ,åœ¨æœ€å¤§çš„ä¹Ÿæ¯”æ’å…¥å…ƒç´ å°æ—¶æ’å…¥å…ƒç´ 
 				this->next = new list1<T>(&datain);
 				this->next->next = temp;
 			}
 			else {
 				for (;; temp = temp->next) {
-					if ((temp->next->data > datain && temp->data <= datain) || temp->data > temp->next->data) {//ÏÂÒ»¸öÔªËØ´óÓÚ²åÈëÔªËØ,ÔÚ×î´óµÄÒ²±È²åÈëÔªËØĞ¡Ê±²åÈëÔªËØ
+					if ((temp->next->data > datain && temp->data <= datain) || temp->data > temp->next->data) {//ä¸‹ä¸€ä¸ªå…ƒç´ å¤§äºæ’å…¥å…ƒç´ ,åœ¨æœ€å¤§çš„ä¹Ÿæ¯”æ’å…¥å…ƒç´ å°æ—¶æ’å…¥å…ƒç´ 
 						list1<T>* p = temp->next;
 						temp->next = new list1<T>(&datain);
 						temp->next->next = p;
@@ -83,12 +83,12 @@ public:
 		}
 		return 0;
 	}
-	//½ÚµãµÄÉ¾³ı
+	//èŠ‚ç‚¹çš„åˆ é™¤
 	bool DelNood(list1<T>* NodeNeedDel) {
 		if (this->next == NULL) {
 			return 1;
 		}
-		if (this->next == this) {//Ò»¸öÔªËØÁ´±í
+		if (this->next == this) {//ä¸€ä¸ªå…ƒç´ é“¾è¡¨
 			if(this==NodeNeedDel)this->next = NULL;
 		}
 		else {
@@ -101,7 +101,7 @@ public:
 				}
 				temp = temp->next;
 			} while (temp != this);
-			//Ê§°ÜµÄĞ´·¨
+			//å¤±è´¥çš„å†™æ³•
 			/*
 			list1<T>* temp = this->next;
 			for (; temp != this; temp = temp->next) {
@@ -138,19 +138,19 @@ public:
 		}
 		return 0;
 	}
-	//Ö±½ÓÇ°Çı½ÚµãµÄÉ¾³ı
+	//ç›´æ¥å‰é©±èŠ‚ç‚¹çš„åˆ é™¤
 	bool DelPirNood(list1<T>* NodeNNeedDel) {
 		if (this->next == NULL) {
 			return 1;
 		}
-		if (this->next == this) {//Ò»¸öÔªËØÁ´±í
+		if (this->next == this) {//ä¸€ä¸ªå…ƒç´ é“¾è¡¨
 			return 1;
 		}
 		else {
 			list1<T>* temp = this;
 			do {
 				if (temp->next->next == NodeNNeedDel) {
-					if (temp->next == this) {//Ç°Çı½ÚµãÎªÍ·½Úµã
+					if (temp->next == this) {//å‰é©±èŠ‚ç‚¹ä¸ºå¤´èŠ‚ç‚¹
 						temp = temp->next;
 						temp->data = temp->next->data;
 					}
@@ -167,7 +167,7 @@ public:
 		if (this->next == NULL) {
 			return 1;
 		}
-		if (this->next == this) {//Ò»¸öÔªËØÁ´±í
+		if (this->next == this) {//ä¸€ä¸ªå…ƒç´ é“¾è¡¨
 			return 1;
 		}
 		else {
@@ -175,7 +175,7 @@ public:
 			do {
 				//cout << temp->data << endl;
 				if (temp->next->next->data == NodeNeedDel) {
-					if (temp->next == this) {//Ç°Çı½ÚµãÎªÍ·½Úµã
+					if (temp->next == this) {//å‰é©±èŠ‚ç‚¹ä¸ºå¤´èŠ‚ç‚¹
 						temp->next->data = temp->next->next->data;
 						temp = temp->next;
 					}
@@ -190,7 +190,7 @@ public:
 		return 0;
 	}
 };
-//¶ÔÊä³öµÄÖØÔØ
+//å¯¹è¾“å‡ºçš„é‡è½½
 template <class T>
 bool operator << (ostream& out, list1<T>& datain) {
 	list1<T>* temp = datain.next;
@@ -201,7 +201,7 @@ bool operator << (ostream& out, list1<T>& datain) {
 	out << endl;
 	return 0;
 }
-//É¾³ıÔÚÀàÍâµÄĞ´·¨!!!!!!
+//åˆ é™¤åœ¨ç±»å¤–çš„å†™æ³•!!!!!!
 template <class T>
 list1<T>* DelPirNood(list1<T>* ListIn,const T& NodeNeedDel) {
 	if (ListIn->next == NULL) {
@@ -225,13 +225,13 @@ list1<T>* DelPirNood(list1<T>* ListIn,const T& NodeNeedDel) {
 	}	
 }
 /*
-Á´±í2Àà
+é“¾è¡¨2ç±»
 ***************************************************************************
-* 1:»ùÓÚÁ´±í1¹¹³É,°üº¬µÄ½ÚµãÀàĞÍÎªlist1                                   *
-* 2:²åÈëº¯ÊıÖØĞ´ÁË£¬ÓÚlist1ÖĞ²åÈëÎŞ¹Ø£¬µ«·ÖÀëº¯ÊıÖĞÓÃµ½ÁËlist1µÄ²åÈëº¯Êı  *
-* 3:¹¹Ôìº¯Êı¡¢²åÈëº¯Êı×ñÑ­                                                *
-*	 a:Èç¹ûÍ·½ÚµãÖ¸ÕëÓòÊı¾İÓëÍ·½ÚµãµØÖ·ÏàÍ¬£¬Ö±½Ó²åÈë                     *
-*	 b:·ÇÉÏÊöÇé¿ö£¬¿ªÊ¼Ñ°ÕÒ²åÈëÎ»                                         *
+* 1:åŸºäºé“¾è¡¨1æ„æˆ,åŒ…å«çš„èŠ‚ç‚¹ç±»å‹ä¸ºlist1                                   *
+* 2:æ’å…¥å‡½æ•°é‡å†™äº†ï¼Œäºlist1ä¸­æ’å…¥æ— å…³ï¼Œä½†åˆ†ç¦»å‡½æ•°ä¸­ç”¨åˆ°äº†list1çš„æ’å…¥å‡½æ•°  *
+* 3:æ„é€ å‡½æ•°ã€æ’å…¥å‡½æ•°éµå¾ª                                                *
+*	 a:å¦‚æœå¤´èŠ‚ç‚¹æŒ‡é’ˆåŸŸæ•°æ®ä¸å¤´èŠ‚ç‚¹åœ°å€ç›¸åŒï¼Œç›´æ¥æ’å…¥                     *
+*	 b:éä¸Šè¿°æƒ…å†µï¼Œå¼€å§‹å¯»æ‰¾æ’å…¥ä½                                         *
 *                                                              10-18-2020 *
 ***************************************************************************
 */
@@ -286,8 +286,8 @@ public:
 		return 0;
 	}
 };
-//Á´±íµÄ·ÖÀë
-list2<char>** DivList(list2<char>* datain) {//Ä£°åÀàÓÃ²»ÁËµÄ½â¾ö°ì·¨£¬»»ÑÔÖ®ÈçºÎ½â¾öC++ÖĞÄ£°åÀàÔÚÊµÀı»¯Ö®Ç°¾ÍÄÜÊ¹ÓÃ£¡£¡£¡
+//é“¾è¡¨çš„åˆ†ç¦»
+list2<char>** DivList(list2<char>* datain) {//æ¨¡æ¿ç±»ç”¨ä¸äº†çš„è§£å†³åŠæ³•ï¼Œæ¢è¨€ä¹‹å¦‚ä½•è§£å†³C++ä¸­æ¨¡æ¿ç±»åœ¨å®ä¾‹åŒ–ä¹‹å‰å°±èƒ½ä½¿ç”¨ï¼ï¼ï¼
 	list2<char>** back = new list2<char>* [3];
 	back[0] = new list2<char>;
 	back[1] = new list2<char>;
@@ -307,14 +307,14 @@ list2<char>** DivList(list2<char>* datain) {//Ä£°åÀàÓÃ²»ÁËµÄ½â¾ö°ì·¨£¬»»ÑÔÖ®ÈçºÎ
 			back[2]->insert(temp);
 		}
 	}
-	cout <<"Êı×Ö:"<< *back[0]->firstnode;
-	cout <<"×ÖÄ¸:" << *back[1]->firstnode;
-	cout <<"ÆäËü·ûºÅ:" << *back[2]->firstnode;
+	cout <<"æ•°å­—:"<< *back[0]->firstnode;
+	cout <<"å­—æ¯:" << *back[1]->firstnode;
+	cout <<"å…¶å®ƒç¬¦å·:" << *back[2]->firstnode;
 	return back;
 }
 /*
 template <class T>
-list2<T>** DivList(list2<T>* datain) {//Ä£°åÀàÓÃ²»ÁËµÄ½â¾ö°ì·¨£¬»»ÑÔÖ®ÈçºÎ½â¾öC++ÖĞÄ£°åÀàÔÚÊµÀı»¯Ö®Ç°¾ÍÄÜÊ¹ÓÃ£¡£¡£¡
+list2<T>** DivList(list2<T>* datain) {//æ¨¡æ¿ç±»ç”¨ä¸äº†çš„è§£å†³åŠæ³•ï¼Œæ¢è¨€ä¹‹å¦‚ä½•è§£å†³C++ä¸­æ¨¡æ¿ç±»åœ¨å®ä¾‹åŒ–ä¹‹å‰å°±èƒ½ä½¿ç”¨ï¼ï¼ï¼
 	list2<T>** back = new list2<T> * [3]{ NULL };
 	list1<T>* temp = datain->firstnode->next;
 	for (list1<T>* p = temp->next; temp != datain->firstnode; temp = p) {
@@ -352,13 +352,13 @@ list2<T>** DivList(list2<T>* datain) {//Ä£°åÀàÓÃ²»ÁËµÄ½â¾ö°ì·¨£¬»»ÑÔÖ®ÈçºÎ½â¾öC+
 
 
 /*
-Á´±í3
+é“¾è¡¨3
 ***************************************************************************
 * 1:                       *
-* 2:²åÈëº¯ÊıÖØĞ´ÁË£¬ÓÚlist1ÖĞ²åÈëÎŞ¹Ø£¬µ«·ÖÀëº¯ÊıÖĞÓÃµ½ÁËlist1µÄ²åÈëº¯Êı  *
-* 3:¹¹Ôìº¯Êı¡¢²åÈëº¯Êı×ñÑ­                                                *
-*	 a:Èç¹ûÍ·½ÚµãÖ¸ÕëÓòÊı¾İÓëÍ·½ÚµãµØÖ·ÏàÍ¬£¬Ö±½Ó²åÈë                     *
-*	 b:·ÇÉÏÊöÇé¿ö£¬¿ªÊ¼Ñ°ÕÒ²åÈëÎ»                                         *
+* 2:æ’å…¥å‡½æ•°é‡å†™äº†ï¼Œäºlist1ä¸­æ’å…¥æ— å…³ï¼Œä½†åˆ†ç¦»å‡½æ•°ä¸­ç”¨åˆ°äº†list1çš„æ’å…¥å‡½æ•°  *
+* 3:æ„é€ å‡½æ•°ã€æ’å…¥å‡½æ•°éµå¾ª                                                *
+*	 a:å¦‚æœå¤´èŠ‚ç‚¹æŒ‡é’ˆåŸŸæ•°æ®ä¸å¤´èŠ‚ç‚¹åœ°å€ç›¸åŒï¼Œç›´æ¥æ’å…¥                     *
+*	 b:éä¸Šè¿°æƒ…å†µï¼Œå¼€å§‹å¯»æ‰¾æ’å…¥ä½                                         *
 *                                                              10-18-2020 *
 ***************************************************************************
 */
@@ -376,8 +376,8 @@ public:
 			this->Data = *Datain;
 			this->Freq = 0;
 		}
-		else {//¿Õ±í
-			this->Next = this;//±æ±ğ´¦
+		else {//ç©ºè¡¨
+			this->Next = this;//è¾¨åˆ«å¤„
 			this->Prior = NULL;
 			this->Freq = 0;
 		}
@@ -395,26 +395,26 @@ public:
 		this->Prior = Datain.Prior;
 	}
 	bool Insert(T Datain) {
-		if (this->Next != this) {//·Ç¿Õ±í
+		if (this->Next != this) {//éç©ºè¡¨
 			list3* PointerTemp = this;
 			for (; ; PointerTemp = PointerTemp->Next) {
 				if ((PointerTemp->Freq==0 && PointerTemp->Data > Datain) || PointerTemp->Next == NULL) {
-					if (PointerTemp == this && PointerTemp->Data > Datain) {//²åÈëÁ´±íÍ·
+					if (PointerTemp == this && PointerTemp->Data > Datain) {//æ’å…¥é“¾è¡¨å¤´
 						PointerTemp = this->Next;
 						this->Next = new list3(this->Data);
 						this->Next->Next = PointerTemp;
-						if (PointerTemp) PointerTemp->Prior = this->Next;	//ÅĞ¶¨ÊÇÎªÁËÒ»¸öÔªËØÇé¿ö					
+						if (PointerTemp) PointerTemp->Prior = this->Next;	//åˆ¤å®šæ˜¯ä¸ºäº†ä¸€ä¸ªå…ƒç´ æƒ…å†µ					
 						this->Next->Prior = this;
 						this->Data = Datain;
 						break;
 					}
-					else if (PointerTemp->Next == NULL && PointerTemp->Data <= Datain) {//²åÈëÁ´±íÄ©Î²
+					else if (PointerTemp->Next == NULL && PointerTemp->Data <= Datain) {//æ’å…¥é“¾è¡¨æœ«å°¾
 						PointerTemp->Next = new list3(Datain);
 						PointerTemp->Next->Prior = PointerTemp;
 						PointerTemp->Next->Next = NULL;
 						break;
 					}
-					else {//Õı³£²åÈëÇ°Ò»½áµã
+					else {//æ­£å¸¸æ’å…¥å‰ä¸€ç»“ç‚¹
 						list3* StorgePointer = PointerTemp->Prior;
 						PointerTemp->Prior = new list3(Datain);
 						PointerTemp->Prior->Next = PointerTemp;
@@ -423,29 +423,29 @@ public:
 						break;
 					}
 				}
-			} //·ÃÎÊÊı¾İµ½ÁË×îĞ¡´¦£¬°´ÕÕĞ¡µ½´óÅÅĞò
+			} //è®¿é—®æ•°æ®åˆ°äº†æœ€å°å¤„ï¼ŒæŒ‰ç…§å°åˆ°å¤§æ’åº
 		}
-		else {//¿Õ±í
+		else {//ç©ºè¡¨
 			this->Data = Datain;
 			this->Next = NULL;
 		}
 		return 0;
 	}
 	bool Insert(list3<T>* Datain) {
-		if (this->Next != this) {//·Ç¿Õ±í
+		if (this->Next != this) {//éç©ºè¡¨
 			list3* PointerTemp = this;
 			for (; ; PointerTemp = PointerTemp->Next) {
-				if (PointerTemp->Freq <= Datain->Freq) {//·ûºÏµÄÆµÂÊ·¶Î§
+				if (PointerTemp->Freq <= Datain->Freq) {//ç¬¦åˆçš„é¢‘ç‡èŒƒå›´
 					for (;; PointerTemp = PointerTemp->Next) {
-						if (PointerTemp->Data > Datain->Data || PointerTemp->Next==NULL || PointerTemp->Freq < Datain->Freq) {//Êı¾İ´óÓÚ²åÈëÊı¾İ£¬Á´±íÄ©Î²£¬²åÈëÆµÂÊ´óÓÚ±È½ÏÔªËØ
-							if (PointerTemp==this && (PointerTemp->Data > Datain->Data || this->Freq < Datain->Freq)) {//²åÈëÁ´±íÍ·£¬Êı¾İ´óÓÚ²åÈëµÄÔªËØ£¬ÆµÂÊĞ¡ÓÚ²åÈëÆµÂÊ
-								//ÏÂÒ»½ÚµãµÄÌæ»»
+						if (PointerTemp->Data > Datain->Data || PointerTemp->Next==NULL || PointerTemp->Freq < Datain->Freq) {//æ•°æ®å¤§äºæ’å…¥æ•°æ®ï¼Œé“¾è¡¨æœ«å°¾ï¼Œæ’å…¥é¢‘ç‡å¤§äºæ¯”è¾ƒå…ƒç´ 
+							if (PointerTemp==this && (PointerTemp->Data > Datain->Data || this->Freq < Datain->Freq)) {//æ’å…¥é“¾è¡¨å¤´ï¼Œæ•°æ®å¤§äºæ’å…¥çš„å…ƒç´ ï¼Œé¢‘ç‡å°äºæ’å…¥é¢‘ç‡
+								//ä¸‹ä¸€èŠ‚ç‚¹çš„æ›¿æ¢
 								Datain->Next = this->Next;
-								if(this->Next) this->Next->Prior = Datain;//ÅĞ¶¨ÊÇÎªÁËÒ»¸öÔªËØÇé¿ö	
-								//²åÈëÔªËØÓÚÍ·½ÚµãÏÂÒ»Î»
+								if(this->Next) this->Next->Prior = Datain;//åˆ¤å®šæ˜¯ä¸ºäº†ä¸€ä¸ªå…ƒç´ æƒ…å†µ	
+								//æ’å…¥å…ƒç´ äºå¤´èŠ‚ç‚¹ä¸‹ä¸€ä½
 								this->Next = Datain;
 								Datain->Prior = this;
-								//Êı¾İµÄÌæ»»
+								//æ•°æ®çš„æ›¿æ¢
 								T temp = this->Data;
 								int ftemp = this->Freq;
 								this->Data = Datain->Data;
@@ -454,13 +454,13 @@ public:
 								Datain->Freq = ftemp;
 								break;
 							}
-							else if (PointerTemp->Next == NULL && PointerTemp->Data <= Datain->Data) {//µ½ÁËÆ¨¹ÉÇÒÊı¾İĞ¡ÓÚ²åÈëµÄ
+							else if (PointerTemp->Next == NULL && PointerTemp->Data <= Datain->Data) {//åˆ°äº†å±è‚¡ä¸”æ•°æ®å°äºæ’å…¥çš„
 								PointerTemp->Next = Datain;
 								Datain->Prior = PointerTemp;
 								Datain->Next = NULL;
 								break;
 							}
-							else {//Õı³£²åÈëÇ°Ò»½áµã
+							else {//æ­£å¸¸æ’å…¥å‰ä¸€ç»“ç‚¹
 								Datain->Next = PointerTemp;
 								Datain->Prior = PointerTemp->Prior;
 								PointerTemp->Prior->Next = Datain;
@@ -471,9 +471,9 @@ public:
 					}
 					break;
 				}
-			} //·ÃÎÊÊı¾İµ½ÁË×îĞ¡´¦£¬°´ÕÕĞ¡µ½´óÅÅĞò
+			} //è®¿é—®æ•°æ®åˆ°äº†æœ€å°å¤„ï¼ŒæŒ‰ç…§å°åˆ°å¤§æ’åº
 		}
-		else {//¿Õ±í
+		else {//ç©ºè¡¨
 			*this = *Datain;
 		}
 		return 0;
@@ -538,9 +538,9 @@ ostream& operator <<(ostream& out, list3<T>& Datain) {
 }
 
 void menu() {
-	cout << "1:ÊµÑéÒ»" << endl;
-	cout << "2:ÊµÑé¶ş" << endl;
-	cout << "3:ÊµÑéÈı" << endl;
+	cout << "1:å®éªŒä¸€" << endl;
+	cout << "2:å®éªŒäºŒ" << endl;
+	cout << "3:å®éªŒä¸‰" << endl;
 	cout << "4:EXIT" << endl;
 }
 int main() {
@@ -551,53 +551,53 @@ int main() {
 		cin >> Choice;
 		switch (Choice){
 		case 1: {
-			cout << "Á´±íº¬ÓĞ¶àÉÙÔªËØ?" << endl;
+			cout << "é“¾è¡¨å«æœ‰å¤šå°‘å…ƒç´ ?" << endl;
 			list1<int>* text = new list1<int>;
 			int i; int data;
 			cin >> i;
-			cout << "ÊäÈëÔªËØ" << endl;
+			cout << "è¾“å…¥å…ƒç´ " << endl;
 			for (; i > 0; --i) {
 				cin >> data;
 				text->insert(data);
 			}
-			cout<<"Á´±íÔªËØÎª:" << *text;
-			cout << "ÄãÏëÒªÉ¾³ıµÄ½ÚµãµÄÖ±½ÓºóÇı½ÚµãÊı¾İ:" << endl;
+			cout<<"é“¾è¡¨å…ƒç´ ä¸º:" << *text;
+			cout << "ä½ æƒ³è¦åˆ é™¤çš„èŠ‚ç‚¹çš„ç›´æ¥åé©±èŠ‚ç‚¹æ•°æ®:" << endl;
 			cin >> data;
 			text->DelPirNood(data);
-			cout << "²Ù×÷Ö®ºóµÄÁ´±í" << *text;
+			cout << "æ“ä½œä¹‹åçš„é“¾è¡¨" << *text;
 			system("PAUSE");
 			break;
 		}
 		case 2: {
-			cout << "Á´±íº¬ÓĞ¶àÉÙÔªËØ?" << endl;
+			cout << "é“¾è¡¨å«æœ‰å¤šå°‘å…ƒç´ ?" << endl;
 			list2<char>* text1 = new list2<char>;
 			int i; char data;
 			cin >> i;
-			cout << "ÊäÈëÔªËØ" << endl;
+			cout << "è¾“å…¥å…ƒç´ " << endl;
 			for (; i > 0; --i) {
 				cin >> data;
 				text1->insert(data);
 			}
-			cout << "Á´±íÔªËØÎª:" << *text1->firstnode;
+			cout << "é“¾è¡¨å…ƒç´ ä¸º:" << *text1->firstnode;
 			DivList(text1);
 			system("PAUSE");
 			break;
 		}
 		case 3: {
-			cout << "Á´±íº¬ÓĞ¶àÉÙÔªËØ?" << endl;
+			cout << "é“¾è¡¨å«æœ‰å¤šå°‘å…ƒç´ ?" << endl;
 			list3<int>* text3 = new list3<int>;
 			int i; int data;
 			cin >> i;
-			cout << "ÊäÈëÔªËØ" << endl;
+			cout << "è¾“å…¥å…ƒç´ " << endl;
 			for (; i > 0; --i) {
 				cin >> data;
 				text3->Insert(data);
 			}
-			cout << "Á´±íÔªËØÎª:" << *text3;
+			cout << "é“¾è¡¨å…ƒç´ ä¸º:" << *text3;
 			int CHO = 1;
 			while (CHO) {
 				cout << "_________________" << endl;
-				cout << "1:locateÔªËØ" << endl;
+				cout << "1:locateå…ƒç´ " << endl;
 				cout << "2:EXIT" << endl;
 				cout << "_________________" << endl;
 				cin >> CHO;
