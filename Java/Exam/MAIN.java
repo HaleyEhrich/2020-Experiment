@@ -1,11 +1,11 @@
 
 public class MAIN {
 	public static void main(String[] args) {
-		// TODO ×Ô¶¯Éú³ÉµÄ·½·¨´æ¸ù
+		// TODO è‡ªåŠ¨ç”Ÿæˆçš„æ–¹æ³•å­˜æ ¹
 		System.out.println("Hello world");
 		Exam1 a=new Exam1();
 		a.func1();
-		System.out.println("99³Ë·¨±í");
+		System.out.println("99ä¹˜æ³•è¡¨");
 		a.fuc2();
 	}
 
