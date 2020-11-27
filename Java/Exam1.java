@@ -3,7 +3,7 @@ public class Exam1 {
 		double j=1;
 		for(int i=1;i<=20;++i) {
 			j=j*i;
-			System.out.println(i+"�Ľ׳�Ϊ"+j);
+			System.out.println(i+"µÄ½×³ËÎª"+j);
 		}
 	}
 	public void fuc2() {
