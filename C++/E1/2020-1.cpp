@@ -6,13 +6,13 @@ class examnation1 {
 public:
 	T list[Maxsize];
 	int length;
-	examnation1(const T *str=NULL,int len=0) {//Á´±í¹¹Ôìº¯Êı£¬¿ÉÌá¹©Êı×é¡¢intĞÍÖ¸Õë£¬²¢½ÓÊÜ²ÎÊı´«ÈëÔªËØ¸öÊı
+	examnation1(const T *str=NULL,int len=0) {//é“¾è¡¨æ„é€ å‡½æ•°ï¼Œå¯æä¾›æ•°ç»„ã€intå‹æŒ‡é’ˆï¼Œå¹¶æ¥å—å‚æ•°ä¼ å…¥å…ƒç´ ä¸ªæ•°
 		if (str == NULL) {
 			this->length = 0;
 			return;
 		}
 		for (int i = 0; i<len; ++i) {
-			this->sert(str[i]);//this->length && this->list¾ùÔÚsertÄÚ³õÊ¼»¯
+			this->sert(str[i]);//this->length && this->listå‡åœ¨sertå†…åˆå§‹åŒ–
 		}
 	}
 	bool add(const T &addelem) {
@@ -101,16 +101,16 @@ public:
 			this->list[num] = temp;
 			return 0;
 		}
-		this->list[num] = this->list[lasti];//Ã¿²ãÏÈÌæ»»ÔÙ½øÈëÏÂÒ»²ã
+		this->list[num] = this->list[lasti];//æ¯å±‚å…ˆæ›¿æ¢å†è¿›å…¥ä¸‹ä¸€å±‚
 		this->Cyclic_displacement(k, temp, lasti);
 		return 0;
 	}*/
-	//·Çµİ¹é
+	//éé€’å½’
 	/*bool Cyclic_displacement(int num) {
-		if (num >= this->length)num %= this->length;//Î»ÒÆÁ¿kµÄ´¦Àí
-		if (!num) return 0;//numÎª0£¬½áÊø
+		if (num >= this->length)num %= this->length;//ä½ç§»é‡kçš„å¤„ç†
+		if (!num) return 0;//numä¸º0ï¼Œç»“æŸ
 		T temp;
-		if(num==this->length/2){//ÌØÊâÇé¿ö£¬µ«´ËÊ±Ê±¼ä¸´ÔÓ¶ÈÎªlength/2;
+		if(num==this->length/2){//ç‰¹æ®Šæƒ…å†µï¼Œä½†æ­¤æ—¶æ—¶é—´å¤æ‚åº¦ä¸ºlength/2;
 			for (; num < this->length / 2; num++) {
 				temp = this->list[num];
 				this->list[num] = this->list[ num + this->length/2];
@@ -150,13 +150,13 @@ int main() {
 	text1.sert(3);
 	text1.sert(24536);
 	text1.sert(711);
-	cout << "²åÈëºóË³Ğò±íµÄÊı¾İ" << endl;
+	cout << "æ’å…¥åé¡ºåºè¡¨çš„æ•°æ®" << endl;
 	for (int i = 0; i < text1.length; i++) {
 		cout << text1.list[i] << ' ';
 	}cout << endl;
 	/*
 	text1.utd();
-	cout << "Ë³Ğò±íÄæÖÃºóµÄÊı¾İ" << endl;
+	cout << "é¡ºåºè¡¨é€†ç½®åçš„æ•°æ®" << endl;
 	for (int i = 0; i < text1.length; i++) {
 		cout << text1.list[i] << ' ';
 	}cout << endl;
@@ -164,7 +164,7 @@ int main() {
 	text1.utd();
 	*/
 	text1.Cyclic_disaplacment(8);
-	cout << "Ë³Ğò±íÓÒÒÆ3Î»µÄÊı¾İ" << endl;
+	cout << "é¡ºåºè¡¨å³ç§»3ä½çš„æ•°æ®" << endl;
 	for (int i = 0; i < text1.length; i++) {
 		cout << text1.list[i] << ' ';
 	}
