@@ -4,6 +4,20 @@ import keyInput.Key_io;
 public class Point {
 	private int x;
 	private int y;
+	
+	@Override
+	public boolean equals(Object obj) {
+		if(obj instanceof Point) {
+			return ((Point)obj).x==((Point)obj).x && ((Point)obj).y==((Point)obj).y;
+		}
+		return super.equals(obj);
+	}
+	
+	@Override
+	public String toString() {
+		return this.getX()+" "+this.getY();
+	}
+
 	public Point(){
 		this(0,0);
 	}
