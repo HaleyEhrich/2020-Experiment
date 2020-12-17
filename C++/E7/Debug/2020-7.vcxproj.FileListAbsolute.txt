@@ -1,0 +1,4 @@
+C:\Users\ALAN\source\repos\2020-7\Debug\2020-7.exe
+C:\Users\ALAN\source\repos\2020-7\Debug\2020-7.pdb
+D:\project\vs_project\project\2020-7\Debug\2020-7.exe
+D:\project\vs_project\project\2020-7\Debug\2020-7.pdb
